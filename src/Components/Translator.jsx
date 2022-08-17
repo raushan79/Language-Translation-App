@@ -1,8 +1,15 @@
 import React, {   useState } from "react";
 
+
 function Translator() {
   const [inputText, setInputText] = useState("");
   const [translatedText, setTranslatedText] = useState("");
+
+
+  const handleInput=(e)=>{
+    
+    setInputText(e.target.value)
+  }
 
 
 
@@ -37,9 +44,11 @@ function Translator() {
 
 
   return (
-    <div>
-      <h1>Translator Application</h1>
-      <div>
+    <>
+      <h1 className="translator-heading">Language Translator</h1>
+    <div className="translator-container">
+      <div className="translator-input-container">
+      <div className="translator-input">
         <span>Translate From</span>
         <select name="" id="input-language-code">
           <option value="en" selected>English</option>
@@ -73,7 +82,7 @@ function Translator() {
         </select>
       </div>
 
-      <div>
+      <div className="translator-input">
         <span>Translate To</span>
         <select name="" id="output-language-code">
           <option value="en">English</option>
@@ -106,8 +115,9 @@ function Translator() {
           <option value="vi">Vietnamese</option>
         </select>
       </div>
+      </div>
 
-      <div>
+      <div className="translator-box-container">
 
   
 
@@ -118,7 +128,7 @@ function Translator() {
           rows="10"
           placeholder="Enter Text"
           value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
+          onChange={(e) => handleInput(e)}
           
         ></textarea>
         <textarea
@@ -127,13 +137,15 @@ function Translator() {
           cols="30"
           rows="10"
           placeholder="Translated Text"
+          onChange={()=> ""}
          
           value={inputText?translatedText:""}
         ></textarea>
     
       </div>
-      <button onClick={()=>handleoutput()}>Translate</button>
+      <button className="translator-button" onClick={()=>handleoutput()}>Translate</button>
     </div>
+    </>
   );
 }
 
