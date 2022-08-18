@@ -43,14 +43,16 @@
 }
 
 button{
-    width: 150px;
-    height: 35px;
-    font-size: 25px;
+    width: auto;
+    height: 45px;
+    font-size: 20px;
     border-radius: 10px;
     border: 3px solid blue;
     color: white;
     background-color: blue;
     cursor: pointer;
+    padding: 5px;
+    margin: 5px;
 }
 
 textarea{

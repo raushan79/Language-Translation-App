@@ -1,4 +1,6 @@
 import React, {   useState } from "react";
+import copy from "copy-to-clipboard";
+
 
 
 function Translator() {
@@ -10,6 +12,11 @@ function Translator() {
     
     setInputText(e.target.value)
   }
+
+  const copyToClipboard = () => {
+    copy(translatedText);
+    alert(`Translated Text Copied"${translatedText}"`);
+ }
 
 
 
@@ -140,10 +147,14 @@ function Translator() {
           onChange={()=> ""}
          
           value={inputText?translatedText:""}
-        ></textarea>
+        >
+        </textarea>
     
       </div>
+      <div>
       <button className="translator-button" onClick={()=>handleoutput()}>Translate</button>
+      <button onClick={()=> copyToClipboard()}>  Copy Translated Text  </button>
+      </div>
     </div>
     </>
   );
